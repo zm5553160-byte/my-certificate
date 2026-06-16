@@ -1,214 +1,165 @@
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة إنقاذ | إستعلام عن شهادة</title>
+    <title>منصة منقذ</title>
+    <!-- خط القاهرة المتطابق مع خطوط المنصات الرسمية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- مكتبة Tailwind CSS للتنسيق والأبعاد الاحترافية -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- مكتبة أيقونات Font Awesome لمطابقة الأشكال بالكامل -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        slsfGreen: '#0d5c3a', // اللون الأخضر الرسمي للشعار
+                        slsfBlue: '#00adef',  // اللون الأزرق السماوي للأيقونات والبادج
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8fafc;
-            margin: 0;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            font-family: 'Cairo', sans-serif;
+            background-color: #8c8c8c; /* نفس لون الخلفية الرمادية المحيطة بالكارت في الموبايل */
         }
-        .header-logo {
-            align-self: flex-end;
-            margin-bottom: 25px;
-            padding-left: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-img {
-            width: 70px;
-            height: 70px;
-            object-fit: contain;
-        }
-        .header-logo span {
-            font-size: 16px;
-            color: #1e293b;
-            font-weight: bold;
-            display: block;
-            text-align: right;
-            line-height: 1.4;
-        }
-        .top-bar {
-            background-color: white;
-            border-radius: 10px;
-            padding: 14px;
-            width: 100%;
-            max-width: 420px;
-            text-align: center;
-            color: #334155;
-            font-size: 14px;
-            font-weight: 600;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
-            margin-bottom: 12px;
-            border: 1px solid #e2e8f0;
-            box-sizing: border-box;
-        }
-        .card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px 24px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-            width: 100%;
-            max-width: 420px;
-            box-sizing: border-box;
-            border: 1px solid #e2e8f0;
-            position: relative;
-        }
-        .section-title {
-            color: #94a3b8;
-            font-size: 13px;
-            text-align: right;
-            margin-bottom: 30px;
-            font-weight: 500;
-        }
-        .user-icon-container {
-            background-color: #e0f2fe;
-            width: 55px;
-            height: 55px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px auto;
-        }
-        .user-icon-container svg {
-            width: 30px;
-            height: 30px;
-            fill: #0284c7;
-        }
-        .user-name {
-            font-size: 19px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 6px;
-            text-align: center;
-        }
-        .field-label {
-            color: #94a3b8;
-            font-size: 12px;
-            margin-bottom: 35px;
-            text-align: center;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            row-gap: 40px;
-            column-gap: 24px;
-        }
-        .info-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .icon-wrapper {
-            background-color: #e0f2fe;
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-        }
-        .icon-wrapper svg {
-            width: 24px;
-            height: 24px;
-            fill: #0284c7;
-        }
-        .info-value {
-            font-size: 15px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 6px;
-            text-align: center;
-        }
-        .info-label {
-            color: #94a3b8;
-            font-size: 12px;
-            text-align: center;
-        }
-        .footer {
-            margin-top: 35px;
-            font-size: 12px;
-            color: #94a3b8;
-            direction: ltr;
-            text-align: center;
-        }
-        .footer span {
-            color: #0284c7;
-            font-weight: 600;
+        .card-shadow {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
     </style>
 </head>
-<body>
+<body class="min-h-screen flex items-center justify-center p-2 sm:p-4">
 
-    <div class="header-logo">
-        <span>منصة<br>إنقاذ</span>
-        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAFA3PEY8OF5GfGZebHB0fJCQZHB0fLkqaXyV/9k=" alt="SLSF Logo" class="logo-img">
-    </div>
-
-    <div class="top-bar">الاتحاد السعودي للإنقاذ والسلامة المائية</div>
-    <div class="top-bar">إستعلام عن شهادة</div>
-
-    <div class="card">
-        <div class="section-title">معلومات الشهادة</div>
+    <!-- الكارت الرئيسي للشهادة (مطابق للـ Screenshot بالملي) -->
+    <div class="w-full max-w-[390px] bg-white rounded-[24px] overflow-hidden card-shadow flex flex-col justify-between">
         
-        <div class="user-icon-container">
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5-4-8-4z"/></svg>
+        <!-- الهيدر (شريط منصة منقذ العلوي) -->
+        <div class="relative flex items-center justify-between px-5 pt-8 pb-4 bg-white select-none">
+            
+            <!-- بادج "النسخه الأولى" الأزرق على اليسار -->
+            <div class="absolute left-0 top-6 bg-slsfBlue text-white text-[10px] font-bold px-2.5 py-1 rounded-r-md">
+                النسخه الأولى
+            </div>
+
+            <!-- اسم المنصة والشعار على اليمين -->
+            <div class="flex items-center gap-3 mr-auto">
+                <div class="flex flex-col items-end">
+                    <span class="text-slsfBlue text-[18px] font-extrabold leading-none">منصة</span>
+                    <span class="text-slsfGreen text-[20px] font-extrabold leading-tight mt-0.5">مُنقذ</span>
+                </div>
+                
+                <!-- شعار المنصة الرسمي المرسوم بدقة عالية بـ SVG ليعمل بدون إنترنت -->
+                <div class="w-[44px] h-[44px]">
+                    <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="44" stroke="#0d5c3a" stroke-width="4.5"/>
+                        <circle cx="50" cy="50" r="37" stroke="#00adef" stroke-width="1.5" stroke-dasharray="2 2"/>
+                        <path d="M50 18 L50 82 M18 50 L82 50" stroke="#0d5c3a" stroke-width="2.5" stroke-linecap="round"/>
+                        <circle cx="50" cy="50" r="16" fill="#00adef"/>
+                        <path d="M42 42 Q50 30 58 42 Q50 54 42 42 Z" stroke="#ffffff" stroke-width="2.5" fill="none"/>
+                        <path d="M30 35 C40 25 60 25 70 35" stroke="#0d5c3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <path d="M30 65 C40 75 60 75 70 65" stroke="#0d5c3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            </div>
         </div>
-        
-        <div class="user-name">Ahmed Rizk Mohamed Abdelrazek</div>
-        <div class="field-label">الإسم</div>
 
-        <div class="grid">
+        <!-- محتوى الشهادة الفعلي ورسومات الأيقونات -->
+        <div class="px-5 pb-8 pt-2 flex flex-col items-center">
             
-            <div class="info-box">
-                <div class="icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v-2z"/></svg>
-                </div>
-                <div class="info-value">شهادة إنقاذ</div>
-                <div class="info-label">إسم الشهادة</div>
-            </div>
-            
-            <div class="info-box">
-                <div class="icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                </div>
-                <div class="info-value">KSA-26-0378</div>
-                <div class="info-label">رقم الشهادة</div>
+            <!-- أيقونة المستخدم الزرقاء الدائرية بالوسط -->
+            <div class="w-[58px] h-[58px] bg-[#00b0ea] rounded-[18px] flex items-center justify-center mb-3">
+                <i class="fa-solid fa-user text-white text-2xl"></i>
             </div>
 
-            <div class="info-box">
-                <div class="icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                </div>
-                <div class="info-value">2026-05-08</div>
-                <div class="info-label">تاريخ الإصدار</div>
-            </div>
+            <!-- الاسم المعروض (تقدر تعدله من هنا مباشرة) -->
+            <h1 class="text-[20px] font-bold text-gray-800 text-center leading-snug">
+                Ahmed Rizk Mohamed Abdelrazek
+            </h1>
+            <!-- وسم الوصف تحت الاسم -->
+            <span class="text-gray-400 text-[11px] font-semibold mt-1 mb-8">الإسم</span>
 
-            <div class="info-box">
-                <div class="icon-wrapper">
-                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <!-- شبكة البيانات (4 حقول مطابقة للترتيب والشكل) -->
+            <div class="grid grid-cols-2 gap-x-4 gap-y-8 w-full">
+                
+                <!-- 1. إسم الشهادة -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-[52px] h-[52px] bg-[#00b0ea] rounded-[16px] flex items-center justify-center mb-2">
+                        <i class="fa-solid fa-list-ul text-white text-xl"></i>
+                    </div>
+                    <!-- لتعديل اسم الشهادة عدل الكلمة بالأسفل -->
+                    <span class="text-[16px] font-bold text-gray-800 leading-tight">
+                        شهادة إنقاذ
+                    </span>
+                    <span class="text-gray-400 text-[11px] font-semibold mt-0.5">إسم الشهادة</span>
                 </div>
-                <div class="info-value">2028-05-08</div>
-                <div class="info-label">تاريخ إنتهاء الصلاحية</div>
+
+                <!-- 2. رقم الشهادة -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-[52px] h-[52px] bg-[#00b0ea] rounded-[16px] flex items-center justify-center mb-2">
+                        <i class="fa-solid fa-certificate text-white text-xl"></i>
+                    </div>
+                    <!-- لتعديل رقم الشهادة عدل الكود بالأسفل -->
+                    <span class="text-[16px] font-bold text-gray-800 leading-tight tracking-wide" dir="ltr">
+                        KSA-26-0378
+                    </span>
+                    <span class="text-gray-400 text-[11px] font-semibold mt-0.5">رقم الشهادة</span>
+                </div>
+
+                <!-- 3. تاريخ الإصدار -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-[52px] h-[52px] bg-[#00b0ea] rounded-[16px] flex items-center justify-center mb-2">
+                        <i class="fa-regular fa-clock text-white text-xl"></i>
+                    </div>
+                    <!-- لتعديل تاريخ الإصدار عدل التاريخ بالأسفل -->
+                    <span class="text-[16px] font-bold text-gray-800 leading-tight">
+                        2026-05-08
+                    </span>
+                    <span class="text-gray-400 text-[11px] font-semibold mt-0.5">تاريخ الإصدار</span>
+                </div>
+
+                <!-- 4. تاريخ إنتهاء الصلاحية -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-[52px] h-[52px] bg-[#00b0ea] rounded-[16px] flex items-center justify-center mb-2">
+                        <i class="fa-regular fa-clock text-white text-xl"></i>
+                    </div>
+                    <!-- لتعديل تاريخ الإنتهاء عدل التاريخ بالأسفل -->
+                    <span class="text-[16px] font-bold text-gray-800 leading-tight">
+                        2028-05-08
+                    </span>
+                    <span class="text-gray-400 text-[11px] font-semibold mt-0.5">تاريخ إنتهاء الصلاحية</span>
+                </div>
+
             </div>
-            
         </div>
-    </div>
 
-    <div class="footer">
-        Copyright © <span>منصة إنقاذ</span> 2026
+        <!-- الجزء السفلي الخاص باختيار اللغة وحقوق النشر والتأليف -->
+        <div class="border-t border-gray-100 py-4 px-5 flex items-center justify-between bg-white text-[11px] font-semibold text-gray-400">
+            <!-- منشئ اختيار اللغة "Arabic" ومحاذاتها -->
+            <div class="flex items-center gap-1.5 border border-gray-200 rounded px-2 py-0.5 text-xs">
+                <i class="fa-solid fa-angle-down text-[9px]"></i>
+                <span>Arabic</span>
+                <i class="fa-solid fa-check text-emerald-600 text-[9px]"></i>
+            </div>
+            <!-- حقوق النشر والاسم التجاري للمنصة -->
+            <div>
+                Copyright © <span class="text-[#0d5c3a] font-bold">منصة مُنقذ</span> 2026
+            </div>
+        </div>
+
     </div>
 
 </body>
 </html>
+
+```
