@@ -1,160 +1,65 @@
-import { useState } from "react";
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة مُنقذ | استعلام عن شهادة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body { font-family: 'Cairo', sans-serif; background-color: #F9F9F9; margin: 0; padding: 0; }
+        .header { padding: 1.5rem; border-bottom: 1px solid #e0e0e0; background-color: #fff; display: flex; align-items: center; justify-content: space-between; }
+        .logo-area { display: flex; align-items: center; gap: 0.75rem; }
+        .card { background-color: #fff; border-radius: 1.25rem; padding: 1.5rem; margin: 1.5rem auto; max-width: 800px; box-shadow: 0px 12px 23px rgba(63, 154, 224, 0.04); text-align: center; }
+        .icon-circle { width: 54px; height: 54px; border-radius: 14px; background-color: #14afd0; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        h2 { margin: 0 0 0.5rem; font-size: 1.5rem; color: #000; }
+        span { font-size: 0.875rem; color: #7e7e7e; }
+        img { width: 52px; height: auto; }
+    </style>
+</head>
+<body>
 
-export default function Index() {
-  const [language, setLanguage] = useState("ar");
-  const isRTL = language === "ar";
-
-  const text = {
-    ar: {
-      platformName: "منصة مُنقذ",
-      orgName: "الاتحاد السعودي للإنقاذ والسلامة المائية",
-      checkCertificate: "إستعلام عن شهادة",
-      certificateInfo: "معلومات الشهادة",
-      name: "الإسم",
-      holderName: "Ahmed Rizk Mohamed Abdelrazek",
-      certificateNumber: "رقم الشهادة",
-      number: "KSA-26-0378",
-      certificateName: "إسم الشهادة",
-      certTitle: "شهادة إنقاذ",
-      issueDate: "تاريخ الإصدار",
-      issueDateValue: "2026-05-08",
-      expiryDate: "تاريخ إنتهاء الصلاحية",
-      expiryDateValue: "2028-05-08",
-      copyright: "جميع الحقوق محفوظة © منصة مُنقذ 2026",
-      version: "النسخه الأولى",
-    },
-    en: {
-      platformName: "Rescue Platform",
-      orgName: "Saudi Water Rescue and Safety Union",
-      checkCertificate: "Certificate Inquiry",
-      certificateInfo: "Certificate Information",
-      name: "Name",
-      holderName: "Mahmoud sayed Abdelkarem",
-      certificateNumber: "Certificate Number",
-      number: "KSA-26-0378",
-      certificateName: "Certificate Name",
-      certTitle: "Rescue Certificate",
-      issueDate: "Issue Date",
-      issueDateValue: "2026-05-08",
-      expiryDate: "Expiry Date",
-      expiryDateValue: "2028-05-08",
-      copyright: "All rights reserved © Rescue Platform 2026",
-      version: "First Version",
-    },
-  };
-
-  const t = text[language as keyof typeof text];
-
-  return (
-    <div dir={isRTL ? "rtl" : "ltr"} className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-      {/* Header */}
-      <header className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-gray-900">{t.platformName}</h1>
-          <select
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
-            className="px-3 py-2 border border-gray-300 rounded-lg text-sm"
-          >
-            <option value="ar">العربية</option>
-            <option value="en">English</option>
-          </select>
+    <div class="header">
+        <div class="logo-area">
+            <img src="images (25).jpeg" alt="Logo">
+            <h3 style="margin: 0; color: #3d4465;">منصة مُنقذ</h3>
         </div>
-      </header>
-
-      {/* Version Badge */}
-      <div className="max-w-7xl mx-auto px-4 pt-6">
-        <div className="inline-block bg-blue-50 px-4 py-2 rounded-full mb-6">
-          <span className="text-sm font-medium text-blue-700">{t.version}</span>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8">
-        {/* Banners */}
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-          <h2 className="text-xl font-bold text-gray-900">
-            <i className="fa fa-certificate mr-2 text-blue-500" />{t.orgName}
-          </h2>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-          <h2 className="text-xl font-bold text-gray-900">
-            <i className="fa fa-certificate mr-2 text-blue-500" />{t.checkCertificate}
-          </h2>
-        </div>
-
-        {/* Certificate Card */}
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-4">
-            <h3 className="text-xl font-bold text-white">{t.certificateInfo}</h3>
-          </div>
-
-          <div className="p-8">
-            {/* Holder */}
-            <div className="mb-12 text-center">
-              <div className="inline-flex w-16 h-16 rounded-full bg-blue-100 items-center justify-center mb-4">
-                <i className="fa fa-user text-2xl text-blue-500" />
-              </div>
-              <h4 className="text-2xl font-bold text-gray-900 mb-2">{t.holderName}</h4>
-              <p className="text-sm font-medium text-gray-600">{t.name}</p>
-            </div>
-
-            {/* Grid 2x2 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-              <div className="text-center">
-                <div className="inline-flex w-16 h-16 rounded-full bg-blue-100 items-center justify-center mb-4">
-                  <i className="fa fa-certificate text-2xl text-blue-500" />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">{t.number}</h4>
-                <p className="text-sm font-medium text-gray-600">{t.certificateNumber}</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex w-16 h-16 rounded-full bg-blue-100 items-center justify-center mb-4">
-                  <i className="fa fa-list text-2xl text-blue-500" />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">{t.certTitle}</h4>
-                <p className="text-sm font-medium text-gray-600">{t.certificateName}</p>
-              </div>
-            </div>
-
-            {/* Dates */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <div className="text-center">
-                <div className="inline-flex w-16 h-16 rounded-full bg-blue-100 items-center justify-center mb-4">
-                  <i className="fa fa-clock-o text-2xl text-blue-500" />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">{t.issueDateValue}</h4>
-                <p className="text-sm font-medium text-gray-600">{t.issueDate}</p>
-              </div>
-              <div className="text-center">
-                <div className="inline-flex w-16 h-16 rounded-full bg-blue-100 items-center justify-center mb-4">
-                  <i className="fa fa-clock-o text-2xl text-blue-500" />
-                </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">{t.expiryDateValue}</h4>
-                <p className="text-sm font-medium text-gray-600">{t.expiryDate}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 mt-12">
-        <div className="max-w-7xl mx-auto px-4 py-8 text-center">
-          <p className="text-sm text-gray-600">{t.copyright}</p>
-        </div>
-      </footer>
     </div>
-  );
-}
 
-index.html - أضف Font Awesome:
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <div class="card">
+        <h5 style="text-align: right; margin-bottom: 2rem;">معلومات الشهادة</h5>
+        
+        <div class="icon-circle"><i class="fa fa-user" style="font-size: 30px; color: #fff;"></i></div>
+        <h2>Ahmed Rizk Mohamed Abdelrazek</h2>
+        <span>الإسم</span>
 
-ألوان Tailwind - في client/global.css:
-:root {
-  --primary: 204 100% 50%; /* أزرق */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 20%;
-}
+        <div class="grid">
+            <div>
+                <div class="icon-circle"><i class="fa fa-certificate" style="font-size: 30px; color: #fff;"></i></div>
+                <h2>KSA-26-0378</h2>
+                <span>رقم الشهادة</span>
+            </div>
+            <div>
+                <div class="icon-circle"><i class="fa fa-list" style="font-size: 30px; color: #fff;"></i></div>
+                <h2>شهادة إنقاذ</h2>
+                <span>إسم الشهادة</span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <div>
+                <div class="icon-circle"><i class="fa fa-clock-o" style="font-size: 30px; color: #fff;"></i></div>
+                <h2>2026-05-08</h2>
+                <span>تاريخ الإصدار</span>
+            </div>
+            <div>
+                <div class="icon-circle"><i class="fa fa-clock-o" style="font-size: 30px; color: #fff;"></i></div>
+                <h2>2028-05-08</h2>
+                <span>تاريخ إنتهاء الصلاحية</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
