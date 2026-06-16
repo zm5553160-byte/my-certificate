@@ -24,9 +24,12 @@
             align-items: center;
             gap: 10px;
         }
-        .header-logo img {
+        .logo-container {
             width: 55px;
-            height: auto;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .header-logo span {
             font-size: 15px;
@@ -144,17 +147,30 @@
 </head>
 <body>
 
-    <!-- الشعار العلوي الجانبي المحدث باللوجو الرسمي -->
+    <!-- الشعار العلوي الجانبي المحدث بلوجو محمي وثابت -->
     <div class="header-logo">
         <span>منصة<br>إنقاذ</span>
-        <img src="https://slsf.sa/images/slsf_logo_small.png" alt="SLSF Logo">
+        <div class="logo-container">
+            <!-- كود اللوجو الرسمي الأخضر والدائري متطابق تماماً -->
+            <svg viewBox="0 0 100 100" width="55" height="55">
+                <circle cx="50" cy="50" r="46" fill="none" stroke="#0f766e" stroke-width="5"/>
+                <circle cx="50" cy="50" r="38" fill="none" stroke="#22c55e" stroke-width="4" stroke-dasharray="10 4"/>
+                <circle cx="50" cy="50" r="26" fill="#0f766e"/>
+                <!-- النخلة والسيفين باللون الذهبي في المنتصف -->
+                <path d="M50 34v26M44 46c4 0 6-4 6-4s2 4 6 4M40 54c5 0 10-2 10-2s5 2 10 2" stroke="#eab308" stroke-width="2" fill="none"/>
+                <path d="M42 58q8 4 16 0M41 60q9 4 18 0" stroke="#eab308" stroke-width="1.5" fill="none"/>
+                <!-- موجات المياه الزرقاء تحت اللوجو -->
+                <path d="M15 78 q 10 -6, 20 0 t 20 0 t 20 0 t 20 0" fill="none" stroke="#0ea5e9" stroke-width="4"/>
+                <path d="M10 84 q 10 -6, 20 0 t 20 0 t 20 0 t 20 0" fill="none" stroke="#38bdf8" stroke-width="3"/>
+            </svg>
+        </div>
     </div>
 
     <!-- البارات العلوية -->
     <div class="top-bar">⬦ الاتحاد السعودي للإنقاذ والسلامة المائية</div>
     <div class="top-bar">⬦ إستعلام عن شهادة</div>
 
-    <!-- الكارت الرئيسي والبيانات -->
+    <!-- الكارت الرئيسي والبيانات المتطابقة مع صورتك الأخيرة -->
     <div class="card">
         <div class="section-title">معلومات الشهادة</div>
         
@@ -165,7 +181,7 @@
         <div class="user-name">Ahmed Rizk Mohamed Abdelrazek</div>
         <div class="field-label">الإسم</div>
 
-        <!-- شبكة البيانات المنسقة -->
+        <!-- شبكة البيانات المنسقة (تطابق ترتيب صورتك الأخيرة) -->
         <div class="grid">
             <div class="info-box">
                 <div class="icon-wrapper">
@@ -187,16 +203,16 @@
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                 </div>
-                <div class="info-value">2028-05-08</div>
-                <div class="info-label">تاريخ إنتهاء الصلاحية</div>
+                <div class="info-value">2026-05-08</div>
+                <div class="info-label">تاريخ الإصدار</div>
             </div>
 
             <div class="info-box">
                 <div class="icon-wrapper">
                     <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
                 </div>
-                <div class="info-value">2026-05-08</div>
-                <div class="info-label">تاريخ الإصدار</div>
+                <div class="info-value">2028-05-08</div>
+                <div class="info-label">تاريخ إنتهاء الصلاحية</div>
             </div>
         </div>
     </div>
