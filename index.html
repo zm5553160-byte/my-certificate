@@ -24,10 +24,12 @@
             align-items: center;
             gap: 10px;
         }
-        .logo-img {
+        .logo-container {
             width: 65px;
             height: 65px;
-            object-fit: contain;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .header-logo span {
             font-size: 15px;
@@ -150,7 +152,22 @@
 
     <div class="header-logo">
         <span>منصة<br>إنقاذ</span>
-        <img src="1000264724.jpg" alt="SLSF Logo" class="logo-img">
+        <div class="logo-container">
+            <svg viewBox="0 0 100 100" width="65" height="65">
+                <circle cx="50" cy="50" r="46" fill="none" stroke="#0f766e" stroke-width="4"/>
+                <circle cx="50" cy="50" r="41" fill="none" stroke="#b45309" stroke-width="2.5" stroke-dasharray="6 2.5"/>
+                <circle cx="50" cy="50" r="32" fill="none" stroke="#0f766e" stroke-width="7" stroke-dasharray="40 10"/>
+                
+                <g fill="none" stroke="#d97706" stroke-width="2" stroke-linecap="round">
+                    <path d="M50 36v18M45 44c3-1 5-3 5-3s2 2 5 3M42 49c4 0 8-2 8-2s4 2 8 2M40 53c5 1 10-1 10-1s5 2 10 1"/>
+                    <path d="M42 56q8 3 16 0M41 58q9 3 18 0M50 54l-5 5M50 54l5 5"/>
+                </g>
+
+                <path d="M5 76 q 12 -7, 22.5 0 t 22.5 0 t 22.5 0 t 22.5 0 L 95 95 L 5 95 Z" fill="#0ea5e9" opacity="0.85"/>
+                <path d="M5 81 q 12 -7, 22.5 0 t 22.5 0 t 22.5 0 t 22.5 0 L 95 95 L 5 95 Z" fill="#38bdf8" opacity="0.95"/>
+                <path d="M2 86 q 12 -6, 24 0 t 24 0 t 24 0 t 24 0 L 98 95 L 2 95 Z" fill="#0284c7"/>
+            </svg>
+        </div>
     </div>
 
     <div class="top-bar"> الاتحاد السعودي للإنقاذ والسلامة المائية</div>
