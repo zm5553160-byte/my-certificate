@@ -20,13 +20,21 @@
             align-self: flex-end;
             margin-bottom: 20px;
             padding-left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .header-logo img {
+            width: 55px;
+            height: auto;
         }
         .header-logo span {
-            font-size: 14px;
-            color: #1e3a8a;
+            font-size: 15px;
+            color: #25335c;
             font-weight: bold;
             display: block;
-            text-align: left;
+            text-align: right;
+            line-height: 1.3;
         }
         .top-bar {
             background-color: white;
@@ -136,9 +144,10 @@
 </head>
 <body>
 
-    <!-- الشعار العلوي الجانبي -->
+    <!-- الشعار العلوي الجانبي المحدث باللوجو الرسمي -->
     <div class="header-logo">
         <span>منصة<br>إنقاذ</span>
+        <img src="https://slsf.sa/images/slsf_logo_small.png" alt="SLSF Logo">
     </div>
 
     <!-- البارات العلوية -->
@@ -149,7 +158,7 @@
     <div class="card">
         <div class="section-title">معلومات الشهادة</div>
         
-        <!-- أيقونة المستخدم والاسم المظبوط -->
+        <!-- أيقونة المستخدم والاسم -->
         <div class="user-icon-container">
             <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5-4-8-4z"/></svg>
         </div>
